@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.qmuiteam.qmui.widget.QMUITopBar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/topbar"
+    android:layout_width="match_parent"
+    android:layout_height="45dp">
+
+    <RelativeLayout
+        android:id="@+id/layout_back"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/dp_6"
+        android:paddingEnd="@dimen/dp_9"
+        android:layout_centerVertical="true">
+
+        <ImageView
+            android:id="@+id/imv_back"
+            android:layout_width="@dimen/dp_16"
+            android:layout_height="@dimen/dp_19"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/icon_back_left" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tiltle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/dp_5"
+        android:layout_marginBottom="@dimen/dp_9"
+        android:textColor="@color/colorBlackA"
+        android:textSize="@dimen/sp_18"
+        android:textStyle="bold"
+        />
+
+    <ImageView
+        android:id="@+id/iv_toolbar_right"
+        android:visibility="gone"
+        android:layout_width="@dimen/dp_16"
+        android:layout_height="@dimen/dp_16"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/dp_11"
+        android:src="@drawable/refresh_btn_selector" />
+</com.qmuiteam.qmui.widget.QMUITopBar>

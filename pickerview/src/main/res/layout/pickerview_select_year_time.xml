@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:orientation="vertical">
+
+    <include
+            layout="@layout/include_pickerview_topbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pickerview_topbar_height" />
+    <TextView
+            android:layout_marginTop="29dp"
+            android:layout_marginLeft="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请选择开始时间"
+            android:layout_marginBottom="30dp"
+            android:textColor="#ff666666"
+            android:textSize="12sp"
+            />
+
+    <LinearLayout
+            android:id="@+id/timepicker_min"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+
+
+        <com.bigkoo.pickerview.lib.WheelView
+                android:id="@+id/year_min"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        <com.bigkoo.pickerview.lib.WheelView
+
+                android:id="@+id/month_min"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1" />
+
+        <com.bigkoo.pickerview.lib.WheelView
+                android:id="@+id/day_min"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1" />
+
+        <com.bigkoo.pickerview.lib.WheelView
+                android:id="@+id/hour_min"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1" />
+
+        <com.bigkoo.pickerview.lib.WheelView
+                android:id="@+id/min_min"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1" />
+
+        <com.bigkoo.pickerview.lib.WheelView
+                android:id="@+id/second_min"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1" />
+
+    </LinearLayout>
+    <TextView
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="39dp"
+            android:layout_marginBottom="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请选择结束时间"
+            android:textColor="#ff666666"
+            android:textSize="12sp"
+            />
+    <LinearLayout
+            android:id="@+id/timepicker_max"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+
+        <com.bigkoo.pickerview.lib.WheelView
+                android:id="@+id/year_max"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        <com.bigkoo.pickerview.lib.WheelView
+
+                android:id="@+id/month_max"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1" />
+
+        <com.bigkoo.pickerview.lib.WheelView
+                android:id="@+id/day_max"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1" />
+
+        <com.bigkoo.pickerview.lib.WheelView
+                android:id="@+id/hour_max"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1" />
+
+        <com.bigkoo.pickerview.lib.WheelView
+                android:id="@+id/min_max"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1" />
+
+        <com.bigkoo.pickerview.lib.WheelView
+                android:id="@+id/second_max"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1" />
+
+
+    </LinearLayout>
+</LinearLayout>

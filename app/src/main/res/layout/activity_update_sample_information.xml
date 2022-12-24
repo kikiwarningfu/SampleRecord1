@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f6f6f6"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".ui.UpdateSampleInformationActivity">
+    <com.huaqing.samplerecord.widget.TopBar
+        android:id="@id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:centerText="" />
+
+        <com.cooltechworks.views.shimmer.ShimmerRecyclerView
+            android:layout_below="@id/topbar"
+            app:shimmer_demo_child_count="10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@drawable/shape_write_corners"
+            app:shimmer_demo_layout="@layout/main_item_sample_task_three"
+            app:shimmer_demo_layout_manager_type="linear_vertical"
+            android:id="@+id/rv_course_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/dp_20">
+
+        </com.cooltechworks.views.shimmer.ShimmerRecyclerView>
+
+
+
+
+    <TextView
+        android:layout_alignParentBottom="true"
+        android:id="@+id/tv_save"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_gravity="center"
+        android:background="#34B48F"
+        android:gravity="center"
+        android:textSize="@dimen/sp_15"
+        android:paddingTop="@dimen/dp_16"
+        android:paddingBottom="@dimen/dp_16"
+        android:text="保存"
+        android:textColor="#FFFFFF" />
+</RelativeLayout>

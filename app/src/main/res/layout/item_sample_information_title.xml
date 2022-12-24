@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_5"
+        android:background="@drawable/shape_solid_info_no_corners_select"
+        android:paddingLeft="@dimen/dp_13"
+        android:paddingTop="@dimen/dp_8"
+        android:paddingRight="@dimen/dp_13"
+        android:paddingBottom="@dimen/dp_8"
+        android:text="环境信息"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/sp_14" />
+
+    <View
+        android:id="@+id/view_right_divider"
+        android:layout_width="@dimen/dp_10"
+        android:layout_height="@dimen/dp_10" />
+
+</LinearLayout>

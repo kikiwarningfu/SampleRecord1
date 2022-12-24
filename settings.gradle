@@ -1,0 +1,13 @@
+include ':ultimatebarx'
+include ':ucrop'
+include ':picture_library'
+include ':compresshelper'
+rootProject.name = "SampleRecord"
+include ':app'
+
+//include ':module_grayscale'
+//include ':module_camera'
+//include ':brv'
+
+
+include ':pickerview'

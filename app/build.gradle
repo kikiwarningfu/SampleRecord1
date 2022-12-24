@@ -1,0 +1,198 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+    ndkVersion '23.1.7779620'
+    defaultConfig {
+        applicationId "com.huaqing.samplerecord"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0.0"
+
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+
+        ndk {
+            //选择要添加的对应 cpu 类型的 .so 库。
+            abiFilters  'armeabi', 'armeabi-v7a', 'arm64-v8a','x86_64'
+//            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: "com.huaqing.air",
+                JPUSH_APPKEY : "1ea4153639618c0b7149ff70", //JPush 上注册的包名对应的 Appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+    }
+    signingConfigs {
+        config {
+            keyAlias 'key0'
+            keyPassword '123456'
+            storeFile file('../samplerecord.jks')
+            storePassword '123456'
+        }
+    }
+    buildTypes {
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            minifyEnabled false
+            shrinkResources false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+            //添加此行代码，可以在release包下打印log
+//            debuggable true
+//            minifyEnabled true
+//            shrinkResources true
+        }
+        debug {
+            signingConfig signingConfigs.config
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    buildFeatures.dataBinding = true
+
+    viewBinding {
+        enabled = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+        }
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+//    //沉浸式状态栏框架导入
+    implementation 'com.qmuiteam:qmui:1.4.1'
+    //RX
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.11'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    //动态权限
+    implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+    //事件传递框架导入
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation 'com.android.support:support-annotations:23.1.0'
+    //下拉刷新框架导入
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-4'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4-4'
+    //recyclerview导入
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    //RecyclerView的适配器
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50'
+    implementation 'com.lzy.net:okgo:3.0.4'
+    implementation 'com.google.code.gson:gson:2.8.0'
+    // 打印日志
+    implementation 'com.elvishew:xlog:1.6.1'
+    //状态栏
+//    implementation 'com.gitee.zackratos:UltimateBarX:v0.7.1'
+    // snapshot 版本
+//    implementation 'com.gitee.zackratos:UltimateBarX:dev-SNAPSHOT'
+    //eventBus
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    implementation 'com.github.bumptech.glide:compiler:4.8.0'
+
+//    implementation project(":module_camera")
+    implementation project(":picture_library")
+    implementation project(":ultimatebarx")
+//    implementation project(":picture_library")
+    implementation 'io.supercharge:shimmerlayout:2.1.0'
+
+    //骨架屏幕
+//    implementation 'com.github.sharish:ShimmerRecyclerView:v1.3'
+    implementation 'com.ethanhua:skeleton:1.1.2'
+    implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.10.0'
+    /*PictureSelector*/
+//    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.4'
+    //图片处理
+//    implementation 'com.github.nanchen2251:CompressHelper:1.0.5'
+    //二维码库
+//    implementation 'com.google.zxing:core:3.3.0'
+    //android 流失布局
+    implementation 'com.hyman:flowlayout-lib:1.1.2'
+
+//    implementation 'com.github.ailiwean:NBZxing:tag'
+    //若需要使用灰度算法增强库，再次添加以下依赖(纯java超轻量，两个同时依赖,包体积只增大约400kb,混淆后仅200k)
+//    implementation 'com.github.ailiwean:NBZxing-Scale:tag'
+//    implementation 'org.apache.httpcomponents:httpclient:4.1.1'
+
+//    implementation 'org.apache.commons:commons-lang3:3.7'
+//
+//    //分割线
+//    implementation 'com.yqritc:recyclerview-flexibledivider:1.4.0'
+//
+//    //TabLayout
+//    implementation 'com.google.android.material:material:1.0.0'
+//
+//    //图片加载
+//    implementation 'com.github.bumptech.glide:glide:4.9.0'
+//    implementation 'com.github.bumptech.glide:annotations:4.9.0'
+//    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+//
+//    // 高斯模糊和圆角等
+//    implementation 'jp.wasabeef:glide-transformations:4.0.1'
+//    //饼状图
+////    implementation 'com.openxu.viewlib:OXViewLib:1.0.0'
+//
+//    //日历
+////    implementation 'com.github.Othershe:CalendarView:1.2.1'
+
+    ////    implementation 'com.contrarywind:Android-PickerView:4.1.8'
+//
+//    //hellocharts
+////    implementation 'com.github.lecho:hellocharts-library:1.5.8@aar'
+//
+//    implementation 'de.hdodenhof:circleimageview:2.1.0'
+//
+//    implementation 'com.zhy:okhttputils:2.0.0'
+//
+//    implementation 'com.contrarywind:Android-PickerView:3.2.6'
+
+//    implementation 'cn.jiguang.sdk:jpush:4.3.0'  // 此处以JPush 4.3.0 版本为例。
+//    implementation 'cn.jiguang.sdk:jcore:2.9.0'  // 此处以JCore 2.9.0 版本为例。
+    //    //注解
+//    implementation 'com.jakewharton:butterknife:10.1.0'
+//    compileOnly 'androidx.legacy:legacy-support-v4:1.0.0'
+//    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+//
+    //
+//    implementation 'androidx.navigation:navigation-fragment:2.3.0'
+//    implementation 'androidx.navigation:navigation-ui:2.3.0'
+//
+//    implementation 'com.bigkoo:pickerview:2.0.8'
+    implementation files('libs/core.jar')
+    implementation files('libs/qsprintersdk.jar')
+    implementation files('libs/usbsdk.jar')
+
+    implementation 'com.github.li-xiaojun:EasyAdapter:1.2.5'
+    implementation project(path: ':pickerview')
+}
